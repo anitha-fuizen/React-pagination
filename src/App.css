@@ -1,0 +1,30 @@
+table,th,td{
+  border:1px solid grey;
+ }
+
+ table{
+  width: 40%;
+ }
+.pagination{
+  display: inline-block;
+  text-decoration: none;
+}
+.pagination a{
+  border: 1px solid #ddd;
+ 
+  margin: 0 4px;
+}
+ul.pagination {  
+  display: inline-block;  
+}
+ul.pagination li {display: inline;}  
+ul.pagination li a {  
+    color: black;  
+    float: left;  
+    padding: 8px 16px;  
+    text-decoration: none;  
+}  
+.pagination li {
+  margin: 0 1px;
+}
+  
