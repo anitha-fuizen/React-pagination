@@ -8,7 +8,7 @@ import Example from './Components/Useffect';
 import Data from './Components/Data.json'
 import { useState } from 'react';
 //import {AiOutlineArrowUp, AiOutlineArrowDown} from "react-icons/ai";
-import Sorting from './Components/Sorting';
+//import Sorting from './Components/Sorting';
 
 function App() {
   
@@ -17,9 +17,10 @@ function App() {
   const recordsperpage=5
   const lastindex=currentpage*recordsperpage
   const firstindex=lastindex-recordsperpage
-  const records=Data.slice(firstindex,lastindex)
-  const [data,setData]=useState(records)
-  const npage=Math.ceil(Data.length/recordsperpage)
+  
+  const [data,setData]=useState(Data)
+  const records=data.slice(firstindex,lastindex)
+  const npage=Math.ceil(data.length/recordsperpage)
   const numbers=[...Array(npage+1).keys()].slice(1)
 
   
@@ -32,8 +33,8 @@ const sortByName=()=>{
   console.log("its working")
   setSorted({sorted:"Name", reversed:!sorted.reversed})
   const userData=[...data]
-  //  console.log(data)
-  // console.log(userData)
+    console.log(data)
+   console.log(userData)
   userData.sort((userA,userB)=>{
     if (sorted.reversed){
         return (userB.Name).localeCompare(userA.Name)
@@ -55,22 +56,22 @@ setData(userData)
   return (
     <>
    <Example/>
-   <Sorting/>
-   
+   {/* <Sorting/> */}
+   <button onClick={sortByName}>sort</button>
     <table>
      <thead>
       <tr>
       <th >ID
      
       </th>
-      <th onClick={sortByName}>Name
+      <th >Name
      
       </th>
       <th>Email</th>
       </tr>
      </thead>
      <tbody>
-       {data.map((data,i)=>(
+       {records.map((data,i)=>(
         
           <tr key={i}>
           <td>{data.ID}</td>
